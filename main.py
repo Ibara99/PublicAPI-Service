@@ -1,10 +1,11 @@
+import os
 from flask import Flask, jsonify
 from flask_cors import CORS
 from uuid import uuid4
 import pymongo
 import requests
 
-connection_url = 'mongodb://ibara1010:admin123@cluster0-shard-00-00.4gh6a.mongodb.net:27017,cluster0-shard-00-01.4gh6a.mongodb.net:27017,cluster0-shard-00-02.4gh6a.mongodb.net:27017/myFirstDatabase?ssl=true&replicaSet=atlas-i9oz7l-shard-0&authSource=admin&retryWrites=true&w=majority'
+connection_url = os.environ['mongodbkey']
 client = pymongo.MongoClient(connection_url)
 
 app = Flask(__name__)
